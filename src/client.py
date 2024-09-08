@@ -7,6 +7,7 @@ import sys
 
 pattern1 = re.compile("\$((\d*[mhdy])*)")
 pattern2 = re.compile("(\d*[mhdy])")
+
 class ExtClient(discord.Client):
 
     async def on_ready(self):
