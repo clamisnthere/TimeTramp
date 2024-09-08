@@ -78,8 +78,6 @@ class ExtClient(discord.Client):
             match result: 
                 case "NCF":
                     await message.channel.send("That command doesn't exist!")
-                case "Errored":
-                    await message.channel.send("The command errored for some reason!")
                 case _:
                     print(f"{c_name} was ran by {message.author.display_name}")
         
