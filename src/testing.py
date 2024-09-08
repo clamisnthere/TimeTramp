@@ -2,7 +2,7 @@ from base_command import BaseCommand
 
 class Testing(BaseCommand):
     name = "testing"
-
-    def run(self, client, message, args):
-        print("testing the command handler")
-        return "Errored"
+    description = "Just a command for showing that the bot functions"
+    async def run(self, client, message, args):
+        await message.channel.send("Just testing dont mind me ")
+        return "cumstack"

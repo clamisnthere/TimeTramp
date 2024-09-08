@@ -1,5 +1,6 @@
 from discord import Message
 from testing import Testing
+from help import Help
 class Handler():
     def __init__(self, client):
         self.commands = {}
@@ -8,13 +9,13 @@ class Handler():
     def register_command(self, Command):
         self.commands[Command.name] = Command
     
-    def find_and_run(self, command_name: str, message: Message, args: list[str]) -> str:
+    async def find_and_run(self, command_name: str, message: Message, args: list[str]) -> str:
         c = self.commands[command_name]
         if c == None:
             return "NCF"
         try:
             #output is a currently unused variable but sometimes commands may return something
-            output = c.run(self, self.client, message, args)
+            output = await c.run(self, self.client, message, args)
 
             #  every command has run method taking arguments handler, client, message, and args
             return output
@@ -25,4 +26,5 @@ class Handler():
 
     def register_commands(self):
         self.register_command(Testing)
+        self.register_command(Help)
         return "Successfully registered all commands"
